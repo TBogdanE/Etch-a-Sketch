@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    background-color: rgb(21, 130, 214);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em;
+    order: 1;
+}
+
+#pagetitle {
+    font-size: 2em;
+    color: rgb(216, 203, 25);
+}
+
+#menusct {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3em;
+}
+
+#sketchsct {
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+}
+
+#sketch {
+    background-color: white;
+    width: 50em;
+    height: 50em;
+}
