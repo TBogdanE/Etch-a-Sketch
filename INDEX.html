@@ -7,15 +7,17 @@
         <nav>
             <div id="pagetitle">Etch-a-Sketch</div>
         </nav>
-        <div id="menusct">
-            <button>sal</button>
-            <button>sal</button>
-            <button>sal</button>
-            <button>sal</button>
-        </div>
         <div id="sketchsct">
             <div id="sketch">
             </div>
+        </div>
+        <div id="menusct">
+            <input type="range" id="gridsize" value='16' name="size" min="16" max="100" oninput="this.nextElementSibling.value = this.value">
+            <button id="submitgs">Submit</button>
+            <output id="sal"></output>
+            <input type="color" id="selectcolor">
+            <button>sal</button>
+            <button id="resetgamebtn">Reset</button>
         </div>
         <script src="fct.js"></script>
     </body>
