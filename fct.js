@@ -1,46 +1,32 @@
 let resetbtn = document.getElementById('resetgamebtn');
 let gridsizebtn = document.getElementById('submitgs');
 let gridsize = document.getElementById('gridsize');
-let startbtn = document.getElementById('startbtn');
-let updatedGS = 0;
+let updatedGS = 16;
 
-updateGridSize();
-function updateGridSize() {
-    //gridsizebtn.addEventListener('click', () => {
+window.addEventListener('load', startGame);
+
+gridsizebtn.addEventListener('click', function updateGridSize() {
+    var deletegrid= document.getElementById("sketch");
+    deletegrid.querySelectorAll('*').forEach(n => n.remove());
     updatedGS = gridsize.value;
-    //console.log(updatedGS);
-    return updatedGS;
-    }
-//)};
-
-startbtn.addEventListener('click', function startGame() {
-    updateGridSize();
-    console.log(updatedGS);
-    createDiv(updatedGS);
-    hoverDiv(updatedGS);
+    startGame(updatedGS);
 });
 
-/*gridsizebtn.addEventListener('click', function updateGridSize() {
-    let updatedGS = gridsize.value;
-    console.log(updatedGS);
-    let a = () => {
-        for(i = 0; i < updatedGS; i++) {
-            for(j = 0; j < updatedGS; j++) {
-                let pixelclear = document.getElementById(`i${i}j${j}`);
-                pixelclear.style.backgroundColor = 'white';
-            }
+resetbtn.addEventListener('click', function resetDrawing() {
+    console.log('Cleared!');
+    for(i = 0; i < updatedGS; i++) {
+        for(j = 0; j < updatedGS; j++) {
+            let pixelclear = document.getElementById(`i${i}j${j}`);
+            pixelclear.style.background = 'white';
+        }
     }
+});
+
+function startGame() {
+    console.log(updatedGS);
     createDiv(updatedGS);
     hoverDiv(updatedGS);
 }
-}
-);
-
-/*gridsizebtn.addEventListener('click', () => {
-createDiv();
-hoverDiv();
-console.log(gridsize.value);
-}); */
 
 function createDiv(e) {
     for(i = 0; i < e; i++) {
@@ -55,7 +41,6 @@ function createDiv(e) {
     }
 }
 
-
 function hoverDiv(e) {
     for(i = 0; i < e; i++) {
         for(j = 0; j < e; j++) {
@@ -66,14 +51,3 @@ function hoverDiv(e) {
         }
     }
 }
-
-resetbtn.addEventListener('click', function resetDrawing() {
-    console.log('Cleared!');
-    for(i = 0; i < updatedGS; i++) {
-        for(j = 0; j < updatedGS; j++) {
-            let pixelclear = document.getElementById(`i${i}j${j}`);
-            pixelclear.style.background = 'white';
-        }
-    }
-    createDiv();
-});
