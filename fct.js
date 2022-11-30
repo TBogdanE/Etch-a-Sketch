@@ -1,12 +1,13 @@
-let resetbtn = document.getElementById('resetgamebtn');
-let gridsizebtn = document.getElementById('submitgs');
 let gridsize = document.getElementById('gridsize');
+let gridsizebtn = document.getElementById('submitgs');
 let updatedGS = 16;
+let resetbtn = document.getElementById('resetgamebtn');
+let colorpicker = document.getElementById('selectcolor');
 
-window.addEventListener('load', startGame);
+window.addEventListener('load', startGame());
 
 gridsizebtn.addEventListener('click', function updateGridSize() {
-    var deletegrid= document.getElementById("sketch");
+    let deletegrid= document.getElementById("sketch");
     deletegrid.querySelectorAll('*').forEach(n => n.remove());
     updatedGS = gridsize.value;
     startGame(updatedGS);
@@ -46,7 +47,7 @@ function hoverDiv(e) {
         for(j = 0; j < e; j++) {
             let pixels = document.getElementById(`i${i}j${j}`);
             pixels.addEventListener('mousemove', function changeColor() {
-                pixels.style.backgroundColor = 'red';
+                pixels.style.backgroundColor = colorpicker.value;
             });
         }
     }
